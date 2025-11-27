@@ -1,0 +1,345 @@
+{
+  "name": "Send automated daily reminders & Summarizer on Telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "triggerTimes": {
+          "item": [
+            {
+              "hour": 8
+            }
+          ]
+        }
+      },
+      "name": "Morning reminder",
+      "type": "n8n-nodes-base.cron",
+      "position": [
+        288,
+        320
+      ],
+      "notesInFlow": true,
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "id": "8fb5ec86-97ba-4352-9575-c5ee22ae269f",
+      "notes": "Trigger very morning"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "**CONTEXT:**\nYou are an AI teaching assistant for a high school teacher. Your role is to analyze daily student exit ticket responses and provide actionable insights to help the teacher adjust their lessons.\n\n**LIMITATIONS:**\n- Only analyze responses submitted TODAY (November 19, 2025)\n- Keep your summary under 200 words\n- Focus only on academic understanding, not personal student information\n- Do not quote individual students verbatim - summarize patterns instead\n- If there are no responses from today, simply state \"No exit tickets submitted today\"\n\n**INPUT FORMAT:**\nYou will receive ALL student responses for today in one combined text block. Analyze them together as a group.\n\n**EXAMPLE:**\nInput: 30 students answered 3 questions about photosynthesis\nOutput format:\n\"📊 Exit Ticket Summary - November 19, 2025\n\n✅ What students understood well:\n- Most students (23/30) correctly explained the role of chlorophyll\n\n❌ Main misconception identified:\n- 18 students confused respiration with photosynthesis, thinking plants only photosynthesize\n\n🎯 Recommendation:\n- Re-teach the difference between photosynthesis and cellular respiration tomorrow\n- 1 students (mentioned struggling) may need 1-on-1 support\"\n\n**ACTIONS:**\n1. Access the Google Sheets tool to retrieve today's exit ticket responses\n2. Identify the most common correct understanding across responses\n3. Identify the #1 misconception or misunderstanding\n4. Note any students who explicitly mentioned confusion or need help\n5. Provide one specific teaching recommendation for tomorrow\n\n**REFINEMENTS:**\n- Use clear emoji indicators (✅ ❌ 🎯) for readability\n- Quantify patterns when possible (e.g., \"18 out of 30 students...\")\n- Be specific about what to re-teach, not just \"review the topic\"\n- Prioritize actionable insights over general observations",
+        "options": {
+          "systemMessage": "\n",
+          "maxIterations": 1,
+          "returnIntermediateSteps": false,
+          "passthroughBinaryImages": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        1104,
+        592
+      ],
+      "id": "ab19b9f2-fbee-4a29-a2a0-742e4804d7be",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "chatgpt-4o-latest",
+          "mode": "list",
+          "cachedResultName": "chatgpt-4o-latest"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1008,
+        784
+      ],
+      "id": "d3787a3e-510e-493e-87ad-cc41eedfe391",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "FdHtYgaABcBk8pAR",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "802839865",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "disable_notification": false,
+          "disable_web_page_preview": false,
+          "parse_mode": "HTML",
+          "reply_to_message_id": 0,
+          "message_thread_id": 0
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1536,
+        704
+      ],
+      "id": "3927c9cf-50ac-42df-a380-aeb52761bfad",
+      "name": "Send a text message",
+      "webhookId": "ac51a414-7d49-4af7-8a91-c4f7adaf8d8a",
+      "credentials": {
+        "telegramApi": {
+          "id": "wiTMLW97CcnvzBIz",
+          "name": "Telegram account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Flow 1: Morning Reminder \nThis is to get the morning reminder to the teacher to send a message in the telegram bot and schedule a time for sending a message.\n",
+        "height": 224
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        304
+      ],
+      "id": "b5fbbb30-dd42-48ce-9a8d-f227e8232e94",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## Flow 2: Exit Ticket Summarizer\n\nCron Trigger (4 PM daily) → Google Sheets (get new responses) → AI Agent (OpenAI) with prompt to summarize → Send summary to Telegram",
+        "height": 240,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -96,
+        608
+      ],
+      "id": "9e0563f8-f9a5-4917-8e90-32ce21737737",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": "=// Cron expression for 4 PM daily\nconst cronExpression = \"0 16 * * *\";\n\n// Breakdown:\n// 0    - minute (0 = at the top of the hour)\n// 16   - hour (16 = 4 PM in 24-hour format)\n// *    - day of month (every day)\n// *    - month (every month)\n// *    - day of week (every day of the week)\n"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        288,
+        704
+      ],
+      "id": "c19273d2-56a4-4ea9-ba9e-a97251af7daa",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "802839865",
+        "text": "={{ $json.message }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1264,
+        320
+      ],
+      "id": "e469c568-aa24-4dd5-81b3-756f4d0cb744",
+      "name": "Send a text message1",
+      "webhookId": "29dd3150-74a5-49e3-863c-6c1b48545b16",
+      "credentials": {
+        "telegramApi": {
+          "id": "wiTMLW97CcnvzBIz",
+          "name": "Telegram account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1YIufMn3lxhrtxaCro-ydr2hOY75tcYygWbkAw4d9uDs",
+          "mode": "list",
+          "cachedResultName": "Post-Class Evaluation: History Lesson – The Causes of World War I (Responses)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YIufMn3lxhrtxaCro-ydr2hOY75tcYygWbkAw4d9uDs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 330827827,
+          "mode": "list",
+          "cachedResultName": "Form Responses 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1YIufMn3lxhrtxaCro-ydr2hOY75tcYygWbkAw4d9uDs/edit#gid=330827827"
+        },
+        "options": {
+          "dataLocationOnSheet": {
+            "values": {
+              "rangeDefinition": "detectAutomatically"
+            }
+          },
+          "outputFormatting": {
+            "values": {
+              "general": "FORMATTED_VALUE",
+              "date": "FORMATTED_STRING"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        592,
+        656
+      ],
+      "id": "abe3b33f-d566-42fc-989a-66c2e662b43a",
+      "name": "Get row(s) in sheet",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "maxTries": 2,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "KWh9wRNPY7zI1Imt",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const message = \"☀️ Good morning!\\n\\n📅 Today is Wednesday, 19/11/2025\\n\\n📝 Reminder: Don't forget to complete your feedback at the end of class today!\\n\\nYour feedback helps me teach better. It only takes 2 minutes!\\n\\nHave a great day! 🎓\";\nreturn [{ json: { message } }] ;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        752,
+        224
+      ],
+      "id": "4fb0481b-4c91-4d85-9f83-c61916756da9",
+      "name": "MessageReminder"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine all student responses into one text block\nconst allResponses = $input.all().map((item, index) => {\n  return `Student ${index + 1}:\nQuestion 1: ${item.json.question1Answer}\nQuestion 2: ${item.json.question2Answer}\nQuestion 3: ${item.json.question3Answer}\n---`;\n}).join('\\n');\n\nreturn [{\n  json: {\n    combinedResponses: allResponses,\n    totalStudents: $input.all().length,\n    date: new Date().toLocaleDateString()\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        656
+      ],
+      "id": "603a77f6-ecb6-43b9-87c5-072728af1ed0",
+      "name": "ReadSheet"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Morning reminder": {
+      "main": [
+        [
+          {
+            "node": "MessageReminder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message1": {
+      "main": [
+        []
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "ReadSheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MessageReminder": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ReadSheet": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "timezone": "Asia/Kuala_Lumpur",
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v0",
+    "availableInMCP": false
+  },
+  "versionId": "adff84c7-51ac-4a0f-a041-8f43cc2ef812",
+  "meta": {
+    "templateId": "1387",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8bff580f9e85330d3742530e572576d5fdfa142df3fe6a6619e11c277d23a54f"
+  },
+  "id": "snogAoVYWf6WpAEu",
+  "tags": []
+}
