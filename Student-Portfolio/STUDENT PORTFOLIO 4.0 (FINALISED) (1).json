@@ -1,0 +1,583 @@
+{
+  "name": "STUDENT PORTFOLIO 4.0 (FINALISED)",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "1kexLBlZowg8hSJGKVTH_i0bPGK-_lSwhtQ58B3idz9A",
+          "mode": "list",
+          "cachedResultName": "Student Portfolio NocoDb",
+          "cachedResultUrl": "https://docs.google.com/presentation/d/1kexLBlZowg8hSJGKVTH_i0bPGK-_lSwhtQ58B3idz9A/edit?usp=drivesdk"
+        },
+        "name": "=Class 6 Merah - Student Reports - {{ $now.toFormat('yyyy-MM-dd') }}",
+        "sameFolder": false,
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1dVh6GtN_iaQ_QCLetownqBdr51NFLVK7",
+          "mode": "list",
+          "cachedResultName": "6 Merah Student Portfolio",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1dVh6GtN_iaQ_QCLetownqBdr51NFLVK7"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1072,
+        240
+      ],
+      "id": "53e43c42-ce87-44b7-9466-17d011a4dd68",
+      "name": "Copy file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "XiAkyfhQUuE8hALI",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "replaceText",
+        "presentationId": "={{ $json.id }}",
+        "textUi": {
+          "textValues": [
+            {
+              "text": "{{STUDENT_1_NAME}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Name }}"
+            },
+            {
+              "text": "{{STUDENT_1_CLASS}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Class }}"
+            },
+            {
+              "text": "{{STUDENT_1_ID}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_ID }}"
+            },
+            {
+              "text": "{{STUDENT_1_DOB}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_DOB }}"
+            },
+            {
+              "text": "{{STUDENT_1_EMAIL}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Email }}"
+            },
+            {
+              "text": "{{STUDENT_1_PARENT_CONTACT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Parent_Contact }}"
+            },
+            {
+              "text": "{{STUDENT_1_MATH}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Math }}"
+            },
+            {
+              "text": "{{STUDENT_1_SCIENCE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Science }}"
+            },
+            {
+              "text": "{{STUDENT_1_ENGLISH}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_English }}"
+            },
+            {
+              "text": "{{STUDENT_1_MALAY}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Malay }}"
+            },
+            {
+              "text": "{{STUDENT_1_HISTORY}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_History }}"
+            },
+            {
+              "text": "{{STUDENT_1_GPA}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_GPA }}"
+            },
+            {
+              "text": "{{STUDENT_1_ATTENDANCE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Attendance }}"
+            },
+            {
+              "text": "{{STUDENT_1_BEHAVIOUR_SCORE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Behaviour_Score }}"
+            },
+            {
+              "text": "{{STUDENT_1_BEHAVIOUR_NOTES}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Behaviour_Notes }}"
+            },
+            {
+              "text": "{{STUDENT_1_COCURRICULUM_1}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_CoCurriculum_1 }}"
+            },
+            {
+              "text": "{{STUDENT_1_COCURRICULUM_2}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_CoCurriculum_2 }}"
+            },
+            {
+              "text": "{{STUDENT_1_COCURRICULUM_3}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_CoCurriculum_3 }}"
+            },
+            {
+              "text": "{{STUDENT_1_LEADERSHIP}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Leadership }}"
+            },
+            {
+              "text": "{{STUDENT_1_ACHIEVEMENT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Achievement }}"
+            },
+            {
+              "text": "{{STUDENT_1_TEACHER_REMARKS}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Teacher_Remarks }}"
+            },
+            {
+              "text": "{{STUDENT_1_LAST_UPDATED}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Last_Updated }}"
+            },
+            {
+              "text": "{{STUDENT_2_NAME}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Name }}"
+            },
+            {
+              "text": "{{STUDENT_2_ID}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_ID }}"
+            },
+            {
+              "text": "{{STUDENT_2_CLASS}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Class }}"
+            },
+            {
+              "text": "{{STUDENT_2_DOB}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_DOB }}"
+            },
+            {
+              "text": "{{STUDENT_2_EMAIL}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Email }}"
+            },
+            {
+              "text": "{{STUDENT_2_PARENT_CONTACT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Parent_Contact }}"
+            },
+            {
+              "text": "{{STUDENT_2_MATH}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Math }}"
+            },
+            {
+              "text": "{{STUDENT_2_SCIENCE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Science }}"
+            },
+            {
+              "text": "{{STUDENT_2_ENGLISH}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_English }}"
+            },
+            {
+              "text": "{{STUDENT_2_MALAY}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Malay }}"
+            },
+            {
+              "text": "{{STUDENT_2_HISTORY}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_History }}"
+            },
+            {
+              "text": "{{STUDENT_2_GPA}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_GPA }}"
+            },
+            {
+              "text": "{{STUDENT_2_ATTENDANCE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Attendance }}"
+            },
+            {
+              "text": "{{STUDENT_2_BEHAVIOUR_SCORE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Behaviour_Score }}"
+            },
+            {
+              "text": "{{STUDENT_2_BEHAVIOUR_NOTES}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Behaviour_Notes }}"
+            },
+            {
+              "text": "{{STUDENT_2_COCURRICULUM_1}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_CoCurriculum_1 }}"
+            },
+            {
+              "text": "{{STUDENT_2_COCURRICULUM_2}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_CoCurriculum_2 }}"
+            },
+            {
+              "text": "{{STUDENT_2_COCURRICULUM_3}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_CoCurriculum_3 }}"
+            },
+            {
+              "text": "{{STUDENT_2_LEADERSHIP}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Leadership }}"
+            },
+            {
+              "text": "{{STUDENT_2_ACHIEVEMENT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Achievement }}"
+            },
+            {
+              "text": "{{STUDENT_2_TEACHER_REMARKS}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Teacher_Remarks }}"
+            },
+            {
+              "text": "{{STUDENT_2_LAST_UPDATED}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Last_Updated }}"
+            },
+            {
+              "text": "{{STUDENT_3_NAME}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Name }}"
+            },
+            {
+              "text": "{{STUDENT_3_ID}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_ID }}"
+            },
+            {
+              "text": "{{STUDENT_3_CLASS}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Class }}"
+            },
+            {
+              "text": "{{STUDENT_3_DOB}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_DOB }}"
+            },
+            {
+              "text": "{{STUDENT_3_EMAIL}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Email }}"
+            },
+            {
+              "text": "{{STUDENT_3_PARENT_CONTACT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Parent_Contact }}"
+            },
+            {
+              "text": "{{STUDENT_3_MATH}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Math }}"
+            },
+            {
+              "text": "{{STUDENT_3_SCIENCE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Science }}"
+            },
+            {
+              "text": "{{STUDENT_3_ENGLISH}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_English }}"
+            },
+            {
+              "text": "{{STUDENT_3_MALAY}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Malay }}"
+            },
+            {
+              "text": "{{STUDENT_3_HISTORY}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_History }}"
+            },
+            {
+              "text": "{{STUDENT_3_GPA}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_GPA }}"
+            },
+            {
+              "text": "{{STUDENT_3_ATTENDANCE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Attendance }}"
+            },
+            {
+              "text": "{{STUDENT_3_BEHAVIOUR_SCORE}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Behaviour_Score }}"
+            },
+            {
+              "text": "{{STUDENT_3_BEHAVIOUR_NOTES}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Behaviour_Notes }}"
+            },
+            {
+              "text": "{{STUDENT_3_COCURRICULUM_1}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_CoCurriculum_1 }}"
+            },
+            {
+              "text": "{{STUDENT_3_COCURRICULUM_2}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_CoCurriculum_2 }}"
+            },
+            {
+              "text": "{{STUDENT_3_COCURRICULUM_3}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_CoCurriculum_3 }}"
+            },
+            {
+              "text": "{{STUDENT_3_LEADERSHIP}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Leadership }}"
+            },
+            {
+              "text": "{{STUDENT_3_ACHIEVEMENT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Achievement }}"
+            },
+            {
+              "text": "{{STUDENT_3_TEACHER_REMARKS}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Teacher_Remarks }}"
+            },
+            {
+              "text": "{{STUDENT_3_LAST_UPDATED}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Last_Updated }}"
+            },
+            {
+              "text": "{{STUDENT_1_SCIENTIFIC_COMMENT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_1_Scientific_Comment }}"
+            },
+            {
+              "text": "{{STUDENT_2_SCIENTIFIC_COMMENT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_2_Scientific_Comment }}"
+            },
+            {
+              "text": "{{STUDENT_3_SCIENTIFIC_COMMENT}}",
+              "replaceText": "={{ $('Analyse Rows').item.json.Student_3_Scientific_Comment }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSlides",
+      "typeVersion": 2,
+      "position": [
+        1296,
+        240
+      ],
+      "id": "ccef76c8-34f3-4c76-a3cd-cf0ed0add4c7",
+      "name": "Replace text in a presentation",
+      "credentials": {
+        "googleSlidesOAuth2Api": {
+          "id": "gewiV7T0cBT8b80t",
+          "name": "Google Slides account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all AI outputs from Aggregate node\nconst aggregateNode = $('Aggregate').all();\n\nconsole.log('=== AGGREGATE DEBUG ===');\nconsole.log('Total items from Aggregate:', aggregateNode.length);\n\n// Extract AI outputs - Aggregate wraps them in a data array\nlet aiOutputs = [];\n\nif (aggregateNode.length > 0 && aggregateNode[0].json.data) {\n  // Aggregate wrapped the outputs in { data: [...] }\n  aiOutputs = aggregateNode[0].json.data;\n} else {\n  // Fallback: outputs are directly in the array\n  aiOutputs = aggregateNode;\n}\n\nconsole.log('Total AI Outputs extracted:', aiOutputs.length);\n\n// Get all students from NocoDB\nconst students = $('Get many rows').all();\n\nconsole.log('Total Students from DB:', students.length);\n\n// Debug: Show what AI outputs look like\naiOutputs.forEach((item, index) => {\n  console.log(`AI Output ${index + 1} structure:`, JSON.stringify(item, null, 2));\n});\n\n// Helper function to extract clean AI comment\nconst getAiComment = (index) => {\n  if (!aiOutputs[index]) {\n    console.log(`❌ No AI output found for student ${index + 1}`);\n    return 'No AI analysis available';\n  }\n  \n  const aiData = aiOutputs[index];\n  let comment = '';\n  \n  // Try different possible paths where the comment might be\n  if (aiData.json && aiData.json.output) {\n    comment = aiData.json.output;\n  } else if (aiData.output) {\n    comment = aiData.output;\n  } else if (aiData.json && aiData.json.text) {\n    comment = aiData.json.text;\n  } else if (aiData.text) {\n    comment = aiData.text;\n  } else if (typeof aiData === 'string') {\n    comment = aiData;\n  } else if (aiData.json && typeof aiData.json === 'string') {\n    comment = aiData.json;\n  } else {\n    // Last resort: stringify the whole object\n    comment = JSON.stringify(aiData);\n  }\n  \n  // Clean up JSON formatting\n  comment = comment.replace(/^Final Comment:\\s*/, '');\n  comment = comment.replace(/^\\{\"data\":\\[\\{\"output\":\"/, '');\n  comment = comment.replace(/\"\\}\\]\\}$/, '');\n  comment = comment.replace(/\\\\\"/g, '\"');\n  comment = comment.trim();\n  \n  console.log(`✅ Student ${index + 1} Comment:`, comment.substring(0, 100) + '...');\n  return comment;\n};\n\n// Helper function to get student field safely\nconst getStudentField = (index, field, defaultValue = 'N/A') => {\n  if (!students[index] || !students[index].json) {\n    return defaultValue;\n  }\n  const value = students[index].json[field];\n  return value !== null && value !== undefined ? value : defaultValue;\n};\n\n// Build SINGLE output object with all 3 students\nconst output = {};\n\n// Process each of the 3 student slots\nfor (let i = 0; i < 3; i++) {\n  const studentNum = i + 1;\n  const prefix = `Student_${studentNum}_`;\n  \n  if (students[i]) {\n    // Published student exists - populate all fields\n    output[`${prefix}Name`] = getStudentField(i, 'Full_Name');\n    output[`${prefix}ID`] = getStudentField(i, 'Student_ID');\n    output[`${prefix}Class`] = getStudentField(i, 'Class');\n    output[`${prefix}DOB`] = getStudentField(i, 'Date_of_Birth');\n    output[`${prefix}Email`] = getStudentField(i, 'Email');\n    output[`${prefix}Parent_Contact`] = getStudentField(i, 'Parent_Contact');\n    output[`${prefix}Math`] = getStudentField(i, 'Math_Avg');\n    output[`${prefix}Science`] = getStudentField(i, 'Science_Avg');\n    output[`${prefix}English`] = getStudentField(i, 'English_Avg');\n    output[`${prefix}Malay`] = getStudentField(i, 'Malay_Avg');\n    output[`${prefix}History`] = getStudentField(i, 'History_Avg');\n    output[`${prefix}GPA`] = getStudentField(i, 'Overall_GPA');\n    output[`${prefix}Attendance`] = getStudentField(i, 'Attendance_Rate');\n    output[`${prefix}Behaviour_Score`] = getStudentField(i, 'Behaviour_Score');\n    output[`${prefix}Behaviour_Notes`] = getStudentField(i, 'Behaviour_Notes');\n    output[`${prefix}CoCurriculum_1`] = getStudentField(i, 'CoCurriculum_1');\n    output[`${prefix}CoCurriculum_2`] = getStudentField(i, 'CoCurriculum_2');\n    output[`${prefix}CoCurriculum_3`] = getStudentField(i, 'CoCurriculum_3');\n    output[`${prefix}Leadership`] = getStudentField(i, 'Leadership_Position');\n    output[`${prefix}Achievement`] = getStudentField(i, 'Special_Achievement');\n    output[`${prefix}Teacher_Remarks`] = getStudentField(i, 'Teacher_Remarks');\n    output[`${prefix}Last_Updated`] = getStudentField(i, 'Last_Updated');\n    \n    // THIS IS THE KEY FIX: Map AI output index to correct student slot\n    output[`${prefix}Scientific_Comment`] = getAiComment(i);\n    \n    console.log(`✅ Mapped Student ${studentNum} (${output[`${prefix}Name`]}) to STUDENT_${studentNum}_SCIENTIFIC_COMMENT`);\n  } else {\n    // No student at this position - show \"Not Published\"\n    output[`${prefix}Name`] = 'Data Not Published';\n    output[`${prefix}ID`] = '-';\n    output[`${prefix}Class`] = '-';\n    output[`${prefix}DOB`] = '-';\n    output[`${prefix}Email`] = '-';\n    output[`${prefix}Parent_Contact`] = '-';\n    output[`${prefix}Math`] = '-';\n    output[`${prefix}Science`] = '-';\n    output[`${prefix}English`] = '-';\n    output[`${prefix}Malay`] = '-';\n    output[`${prefix}History`] = '-';\n    output[`${prefix}GPA`] = '-';\n    output[`${prefix}Attendance`] = '-';\n    output[`${prefix}Behaviour_Score`] = '-';\n    output[`${prefix}Behaviour_Notes`] = '-';\n    output[`${prefix}CoCurriculum_1`] = '-';\n    output[`${prefix}CoCurriculum_2`] = '-';\n    output[`${prefix}CoCurriculum_3`] = '-';\n    output[`${prefix}Leadership`] = '-';\n    output[`${prefix}Achievement`] = '-';\n    output[`${prefix}Teacher_Remarks`] = '-';\n    output[`${prefix}Last_Updated`] = '-';\n    output[`${prefix}Scientific_Comment`] = 'Student data not yet published.';\n    \n    console.log(`⚠️ Student ${studentNum}: Not Published`);\n  }\n}\n\nconsole.log('=== FINAL MAPPING ===');\nconsole.log('Student_1_Scientific_Comment:', output.Student_1_Scientific_Comment?.substring(0, 50));\nconsole.log('Student_2_Scientific_Comment:', output.Student_2_Scientific_Comment?.substring(0, 50));\nconsole.log('Student_3_Scientific_Comment:', output.Student_3_Scientific_Comment?.substring(0, 50));\n\n// Return SINGLE item with all 3 students properly mapped\nreturn [{ json: output }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        848,
+        240
+      ],
+      "id": "f0e7a988-6bee-4527-b2bd-a7f85bd5b883",
+      "name": "Analyse Rows"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=**Role:** You are a Senior Student Success Coach with expertise in adolescent development, providing parents with data-driven, personalized advice.\n\n**Current Student Being Evaluated:**\n- Name: {{ $json.Full_Name }}\n- Student ID: {{ $json.Student_ID }}\n- Class: {{ $json.Class }}\n\n**Academic Performance:**\n- Math: {{ $json.Math_Avg }}%\n- Science: {{ $json.Science_Avg }}%\n- English: {{ $json.English_Avg }}%\n- Malay: {{ $json.Malay_Avg }}%\n- History: {{ $json.History_Avg }}%\n- Overall GPA: {{ $json.Overall_GPA }}\n\n**Behavior & Attendance:**\n- Behavior Score: {{ $json.Behaviour_Score }}/5\n- Behavior Notes: {{ $json.Behaviour_Notes }}\n- Attendance Rate: {{ $json.Attendance_Rate }}%\n\n**Activities & Leadership:**\n- Co-curriculum 1: {{ $json.CoCurriculum_1 }}\n- Co-curriculum 2: {{ $json.CoCurriculum_2 }}\n- Co-curriculum 3: {{ $json.CoCurriculum_3 }}\n- Leadership Position: {{ $json.Leadership_Position }}\n\n**Analysis Instructions:**\n1. Compare ALL five subject scores (Math, Science, English, Malay, History) to identify the LOWEST performing subject\n2. Consider behavior score and attendance rate - if either is critically low (Behavior <3/5 or Attendance <80%), prioritize this\n3. Assess workload balance: evaluate if leadership position + 3 co-curricular activities may be causing overcommitment\n4. Cross-reference: Does low attendance correlate with poor academic performance? Does overcommitment affect weakest subject?\n\n**Task:** \nWrite EXACTLY 3 sentences (maximum 60 words total) evaluating {{ $json.Full_Name }}'s performance:\n\n**Sentence 1:** State {{ $json.Full_Name }}'s weakest area by comparing actual scores (e.g., \"{{ $json.Full_Name }}'s Math score of {{ $json.Math_Avg }}% is 15 points below their English performance\")\n\n**Sentence 2:** Recommend ONE specific physiological intervention based on research (sleep: 8-10hrs for teens, nutrition: omega-3/breakfast, exercise: 60min daily)\n\n**Sentence 3:** Recommend ONE specific habit change tailored to their weakness (study technique for low subject, time management if overcommitted, phone rules if behavior/attendance is poor)\n\n**Rules:**\n- Use ONLY the actual data provided above - no generic statements\n- Must reference specific numbers (scores, attendance %, behavior score)\n- If {{ $json.Leadership_Position }} exists AND GPA <3.0, mention potential overcommitment\n- Each recommendation must directly address the identified weakness\n- Maximum 60 words total across all 3 sentences\n- No filler words - every word must add value",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        464,
+        464
+      ],
+      "id": "8adb6a77-11fd-40f5-bd0c-04c32d8f1056",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        384,
+        640
+      ],
+      "id": "539ccfb9-3717-44c1-ab8a-2db55244df0e",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "FdHtYgaABcBk8pAR",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        560,
+        240
+      ],
+      "id": "7ff6e6cc-b979-4733-9259-b571ddbb76a8",
+      "name": "Aggregate"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "8e8cc4ee-8a77-437d-a5c3-0bb9f919b19c",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -208,
+        256
+      ],
+      "id": "f41ebc32-19b6-450a-94a7-5a7e2a0dca94",
+      "name": "Webhook",
+      "webhookId": "8e8cc4ee-8a77-437d-a5c3-0bb9f919b19c"
+    },
+    {
+      "parameters": {
+        "authentication": "nocoDbApiToken",
+        "operation": "getAll",
+        "projectId": "pjrujnuklm72qaj",
+        "table": "mfbwinhfix5n750",
+        "returnAll": true,
+        "options": {
+          "fields": [],
+          "where": "(Status,eq,Published)"
+        }
+      },
+      "type": "n8n-nodes-base.nocoDb",
+      "typeVersion": 3,
+      "position": [
+        16,
+        256
+      ],
+      "id": "d9102da9-c5b5-42aa-85d9-3cf621e65551",
+      "name": "Get many rows",
+      "credentials": {
+        "nocoDbApiToken": {
+          "id": "hmj4xvCFRReqkc0e",
+          "name": "NocoDB Token account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        240,
+        256
+      ],
+      "id": "e5220cd5-409b-45e6-8825-f2f7f7067738",
+      "name": "Loop Over Items"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Copy file": {
+      "main": [
+        [
+          {
+            "node": "Replace text in a presentation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyse Rows": {
+      "main": [
+        [
+          {
+            "node": "Copy file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Analyse Rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kuala_Lumpur",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false,
+    "errorWorkflow": "3khXhgXhgncqNykS"
+  },
+  "versionId": "1f0204dc-ce20-44b6-9e73-d53b1ae4e5da",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8bff580f9e85330d3742530e572576d5fdfa142df3fe6a6619e11c277d23a54f"
+  },
+  "id": "a2ZSZz2K9gO1BPtA",
+  "tags": []
+}
