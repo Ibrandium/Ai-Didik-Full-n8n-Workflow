@@ -8,7 +8,7 @@
 
 This repository contains four core automation modules:
 
-### 1. 📝 AI Exam Paper Generator (Sejarah KPM)
+### 1. 📝 AI Exam Paper Generator (Sejarah Tingkatan 4)
 *Located in: `/AI-Exam-Generator`*
 
 **The Problem:** Creating KPM-standard History exams takes hours of manual formatting and question drafting.
